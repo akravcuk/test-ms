@@ -6,18 +6,16 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return {'hello': 'world'}
+    # make a get request
+    requests.get('http://ms2-service')
 
-
-@app.route('/first')
-def first():
-    return {'single': 'route'}
-
-
-@app.route('/second')
-def second():
-    data = {
-        "key": "value",
+    # make a post request
+    payload = {
+        "hello" : "world"
     }
-    response = requests.post('http://second-microservice-service/single', json=data)
-    return response.json()
+    response = requests.post('http://ms2-service', json=payload)
+
+    return {
+        'hello': 'world',
+        'response': response.json()
+    }
