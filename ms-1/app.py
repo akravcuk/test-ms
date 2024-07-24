@@ -17,5 +17,5 @@ def hello_world():
 
     return {
         'hello': 'world',
-        'response': response.json()
+        'response': response.status_code
     }
