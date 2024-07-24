@@ -7,5 +7,5 @@ app = Flask(__name__)
 @app.route('/', methods=['GET, POST'])
 def hello_world():
     return {
-        "test" : "hello from second ms-service"
+        "message" : "hello from second ms-service"
     }
